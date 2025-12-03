@@ -1,4 +1,4 @@
-from transport import Client, Vehicle, Airplane, Van, TransportCompany # импортируем все классы из файла transport.py
+from transport import *
 
 def main(): # определяем главную функцию программы
     company = TransportCompany("Белтранс") # создаем объект компании с названием "Белтранс"
