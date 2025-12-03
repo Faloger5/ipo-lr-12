@@ -4,3 +4,6 @@ class Client:
         self.name = name # Сохраняем имя клиента
         self.cargo_weight = cargo_weight # Сохраняем вес груза клиента
         self.is_vip = is_vip # Сохраняем статус VIP
+def __str__(self):
+        # Магический метод для строкового представления объекта
+        return f"Клиент {self.name}, груз: {self.cargo_weight} тонн, VIP: {self.is_vip}"
