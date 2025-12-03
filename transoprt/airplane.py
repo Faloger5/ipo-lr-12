@@ -7,3 +7,6 @@ class Airplane(Vehicle):
         if not isinstance(max_altitude, int):  # добавлена проверка типа высоты
             raise TypeError("Максимальная высота должна быть целым числом")
         self.max_altitude = max_altitude  # Сохраняем максимальную высоту полета
+        
+     def __str__(self):
+        return super().__str__() + f"\nМаксимальная высота: {self.max_altitude} м" # Выводим максимальную высоту
