@@ -1,10 +1,17 @@
+import uuid  # Импортируем модуль для генерации уникальных идентификаторов
+
 class Vehicle:
     # Базовый класс транспортного средства
     def __init__(self, capacity):
-        self.vehicle_id = str(uuid.uuid4()) # Генерируем уникальный ID транспорта
-        self.capacity = capacity # Сохраняем грузоподъемность
-        self.current_load = 0 # Текущая загрузка (изначально 0)
-        self.clients_list = [] # Список клиентов, чьи грузы загружены
+        if not isinstance(capacity, (int, float)):  # добавлена проверка типа грузоподъёмности
+            raise TypeError("Грузоподъёмность должна быть числом")
+        if capacity <= 0:  # добавлена проверка на положительное значение
+            raise ValueError("Грузоподъёмность должна быть положительной")
+
+        self.vehicle_id = str(uuid.uuid4())  # Генерируем уникальный ID транспорта
+        self.capacity = capacity  # Сохраняем грузоподъемность
+        self.current_load = 0  # Текущая загрузка (изначально 0)
+        self.clients_list = []  # Список клиентов, чьи грузы загружены
 
     def load_cargo(self, client):
         # Метод загрузки груза клиента
@@ -14,8 +21,9 @@ class Vehicle:
             raise TypeError("Вес груза должен быть числом")
         if self.current_load + client.cargo_weight > self.capacity:
             raise ValueError("Груз превышает грузоподъемность")
-        self.current_load += client.cargo_weight # Увеличиваем текущую загрузку
-        self.clients_list.append(client) # Добавляем клиента в список
+
+        self.current_load += client.cargo_weight  # Увеличиваем текущую загрузку
+        self.clients_list.append(client)  # Добавляем клиента в список
 
     def __str__(self):
         # Магический метод для строкового представления транспорта
