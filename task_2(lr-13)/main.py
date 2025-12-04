@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-  # Указываем кодировку файла, чтобы поддерживалась кириллица
 import dearpygui.dearpygui as dpg  # Импортируем библиотеку DearPyGui
 from transport import Client, Airplane, Van, TransportCompany  # Импортируем классы из пакета transport
-
+from task_3(lr-13_)import *
 company = TransportCompany("Белтранс")  # Создаём объект транспортной компании
 
 def log_message(msg: str):  # Функция для вывода сообщений в окно "Вывод"
@@ -62,15 +62,6 @@ def optimize_callback(sender, app_data):  # Колбэк для распреде
         log_message(f"Ошибка распределения: {e}")  # Если ошибка, выводим её
         return
     log_message(result)  # Выводим результат оптимизации
-
-def save_results_callback(sender, app_data):  # Новый колбэк для сохранения результатов в файл
-    try:
-        result = company.optimize_cargo_distribution()  # Получаем распределение грузов
-        with open("distribution_results.txt", "w", encoding="utf-8") as f:  # Открываем файл для записи
-            f.write(result)  # Записываем результат в файл
-        log_message("Результаты сохранены в distribution_results.txt")  # Сообщаем об успешном сохранении
-    except Exception as e:
-        log_message(f"Ошибка сохранения: {e}")  # Если ошибка, выводим её
 
 def add_airplane_callback(sender, app_data):  # Колбэк для добавления самолёта
     try:
@@ -150,3 +141,5 @@ dpg.setup_dearpygui()  # Настраиваем DearPyGui
 dpg.show_viewport()    # Показываем окно
 dpg.start_dearpygui()  # Запускаем главный цикл приложения
 dpg.destroy_context()  # Уничтожаем контекст после закрытия
+
+
