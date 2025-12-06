@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-  # Указываем кодировку файла, чтобы поддерживалась кириллица
 import dearpygui.dearpygui as dpg  # Импортируем библиотеку DearPyGui
 from transport import Client, Airplane, Van, TransportCompany  # Импортируем классы из пакета transport
-from task_3(lr-13_)import *
+from task_3(lr-13)import *
 company = TransportCompany("Белтранс")  # Создаём объект транспортной компании
 
 def log_message(msg: str):  # Функция для вывода сообщений в окно "Вывод"
