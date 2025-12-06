@@ -1,4 +1,4 @@
-
+#Доброва Анна
 
 class Airplane(Vehicle):
     # Класс самолета, наследует Vehicle
